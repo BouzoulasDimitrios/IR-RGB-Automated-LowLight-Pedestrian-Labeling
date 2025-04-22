@@ -14,17 +14,15 @@ The research concerns the process of automatically labelling pedestrians at nigh
 
 
 
-# Baseline model
+# Baseline Model
 
-For the baseline model of the research YOLOv11 was chosen. 
+For the baseline model of the research [YOLOv11](https://docs.ultralytics.com/models/yolo11/#key-features)[[2]](#2) was chosen. 
 All of the steps described were performed with YOLOv11m, l and x to validate the results across a wider range of models.
 
 
-# Dataset - KAIST
+# Dataset - KAIST [[1]](#1)
 
-The dataset used for the research is the [KAIST dataset](https://soonminhwang.github.io/rgbt-ped-detection/). 
-KAIST 
-
+The dataset used for the research is the [KAIST dataset](https://soonminhwang.github.io/rgbt-ped-detection/)[[1]](#1). 
 
 
 ### Dataset Preprocessing
@@ -34,16 +32,34 @@ KAIST consists of 3 label classes `person`, `people` and `cyclist`.
 the `autolabeller_fine_tunning.ipynb` notebook goes through the fine tunning steps
 
 
+# Setup 
+
+
+    $ conda create -n ir_rgb_pedestrian_detection python=3.10.16
+    $ conda activate ir_rgb_pedestrian_detection
+    $ pip install -r requirements.txt
+
+
+# Execusion
+
+Fine Tunning a Model for IR Pedestrian Detection:
+
+if you wish to fine tune IR-YOLOm from the start got to `autolabeller_fine_tunning.ipynb` and add your _path_ to the KAIST dataset root, afterwards run the notebook.
+
+If you wish to fine tune your own yolo model add the path to model at `BASELINE_MODEL` variable at the start of the notebook and run the notebook. By default the pipeline should be compatible with any model in the YOLOv11 family.
+
+### Autolabelling Pipeline
+
+In the main.ipynb notebook add the desired fine tuned YOLO model at the top as well as the desired baseline model for the label evaluation
 
 
 
 
+# References
 
+<a id="1">[1]</a>  KAIST dataset [link](https://website.com).
 
-
-
-
-
+<a id="1">[1]</a> YOLOv11 [link](https://docs.ultralytics.com/models/yolo11/#overview).
 
 
 
