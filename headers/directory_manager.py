@@ -3,6 +3,7 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 import glob, random, json
 import yaml
+import cv2
 
 
 def flatten_KAIST_labels(sequences, root_kaist, target_directory):
@@ -56,7 +57,7 @@ def flatten_KAIST_images(sequences, root_kaist, target_directory, image_type):
     _consolidate_and_rename_with_order(target_dir=target_path, source_dirs=directories)
     return target_path
 
-    
+
 def _consolidate_and_rename_with_order(target_dir, source_dirs):
     """
     Consolidates images from multiple directories into a single target directory,
@@ -91,7 +92,6 @@ def _consolidate_and_rename_with_order(target_dir, source_dirs):
                 shutil.copy(source_path, target_path)
                 print(f"Copied {source_path} to {target_path}")
                 image_id += 1
-
 
 
 def generate_txt_config_by_components(label_dir, strict = True, include_person=False, include_people=False, include_cyclist=False, include_empty=False, output_file="config.txt"):
@@ -264,7 +264,6 @@ def generate_split_config(reference_dir, output_file, train_ratio=0.8):
     print(f"Split configuration saved to {output_file}")
 
 
-
 def apply_split_to_directories(config_file, directories, output_base_dir):
     """
     Applies the train-test split to YOLO-style datasets where input is a dictionary 
@@ -405,9 +404,6 @@ def write_yolo_yaml(config_dict, output_path):
     """
     with open(output_path, 'w') as f:
         yaml.dump(config_dict, f, default_flow_style=False)
-
-
-import cv2
 
 
 class detection_values:

@@ -31,6 +31,9 @@ KAIST consists of 3 label classes `person`, `people` and `cyclist`.
 
 the `autolabeller_fine_tunning.ipynb` notebook goes through the fine tunning steps
 
+# Prerequisites
+
+[KAIST dataset](https://soonminhwang.github.io/rgbt-ped-detection/)[[1]](#1) is required in order to run the notebooks as it used in all steps. Simply download the dataset and provide the path to it in the corresponding variables of the notebooks.
 
 # Setup 
 
@@ -42,13 +45,13 @@ the `autolabeller_fine_tunning.ipynb` notebook goes through the fine tunning ste
 
 # Execusion
 
-Fine Tunning a Model for IR Pedestrian Detection:
+##### Fine Tunning a Model for IR Pedestrian Detection:
 
 if you wish to fine tune IR-YOLOm from the start got to `autolabeller_fine_tunning.ipynb` and add your _path_ to the KAIST dataset root, afterwards run the notebook.
 
 If you wish to fine tune your own yolo model add the path to model at `BASELINE_MODEL` variable at the start of the notebook and run the notebook. By default the pipeline should be compatible with any model in the YOLOv11 family.
 
-### Autolabelling Pipeline
+##### Autolabelling Pipeline
 
 In the main.ipynb notebook add the desired fine tuned YOLO model at the top as well as the desired baseline model for the label evaluation
 
